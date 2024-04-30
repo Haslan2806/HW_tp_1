@@ -1,0 +1,12 @@
+#!/bin/bash
+
+printf 'Enter src path: '
+read src_path
+
+printf 'Enter dst path: '
+read dst_path
+
+find "$src_path" \
+    -type f \
+    -exec bash \
+    -c "cd \"$(dirname '{}')\"; cp \"$(basename '{}')\" \"$dst_path\";" \;
